@@ -1,10 +1,10 @@
 # Setting Up Pi Hole with AT&T Fiber's BGW320-505 Router
 
-AT&T Fiber internet service is one of the worst I've encountered, and I'm from the home of Comcast's Xfinity, so that's saying something. They engage in more dark patterns than any ISP I have seen:
+AT&T Fiber internet service is one of the worst I've encountered, and I'm from the home of Comcast's Xfinity, so that's saying something. They force a lot of bad, [dark patterns](https://en.wikipedia.org/wiki/Dark_pattern) on their users:
 
 * They force you to use their equipment, which is some of the worst on the market;
-* They don't let you easily change your DNS provider;
-* They monitor your web-surfing and sell the data to data brokers;
+* They don't let you easily [change your DNS server](https://www.howtogeek.com/897514/why-you-should-change-your-dns-server-today/);
+* They monitor your web-surfing through their DNS servers and sell the data to data brokers;
 * They don't allow you basic white and black listing of websites, unless you pay an additional monthly fee for their awful app;
 * Their default configuration of IPv6 is broken, and prevent devices such as the Meta Quest from properly connecting over WiFi until disabled completely.
 
