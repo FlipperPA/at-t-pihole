@@ -39,35 +39,21 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 
 ### Setting a Fixed IP Address
 
-The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.250` for the router, since other devices will likely be using lower addresses. First, we need to install `dhcpcd` to install a fixed IP address:
-
-
-Maybe just use the `sudo nmtui` with the default install? Let's try again.
-
-
-
-```bash
-sudo apt install dhcpcd5
-sudo systemctl enable dhcpcd
-sudo systemctl start dhcpcd
-```
-
-Type the command `ip addr` and note the `inet` address for `eth0`; it should be something like `192.168.1.###`.
-
-Then we need to edit the configuration file, `/etc/dhcpcd.conf`, and append the following at the end:
+The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.250` for the router, since other devices will likely be using lower addresses. At the prompt, bring up the NetworkManager configuration tool:
 
 ```
-interface eth0
-static ip_address=192.168.1.250/24
-static routers=192.168.1.254
-static domain_name_servers=1.1.1.1 1.0.0.1
+sudo nmtui
 ```
 
-Then we need to restart networking:
-
-```
-sudo systemctl restart dhcpcd
-```
+* In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
+* Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
+    * Addresses: `192.168.1.250/24`
+    * Gateway: `192.168.1.254`
+    * DNS Server: `1.1.1.1` and `1.0.0.1`
+    * Check `Ignore automatically obtained routes`
+    * Check `Ignore automatically obtained DNS parameters`
+    * Check `Require IPv4 addressing for this connection`
+* Click `OK`
 
 https://www.reddit.com/r/pihole/comments/q2nfwk/is_it_possible_to_use_pihole_with_att_fiber/
 
