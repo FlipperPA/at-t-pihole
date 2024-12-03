@@ -31,14 +31,30 @@ The total cost should be about $45.
     * I choose to activate SSH with username and password
     * Save the username and password you create during the installation
 
+Follow the instructions to update the operating system and install Pi Hole using the tutorial. After you have installed the operating system on the MicroSD card, and assembled the Raspberry Pi, be sure to use the ethernet cable to connect it to the router. Then continue below.
+
 ## Customization For AT&T After Initial Installation
 
 To make this work, we need to configure your AT&T router to pass DHCP through to the Pi Hole server, and set the Pi Hole with a fixed IP so everything will still work after a power cycle.
 
 ### Setting a Fixed IP Address
 
-The AT&T
+The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.250` for the router, since other devices will likely be using lower addresses. First, we need to install `dhcpcd` to install a fixed IP address:
 
+```bash
+sudo apt install dhcpcd5
+sudo systemctl enable dhcpcd
+sudo systemctl start dhcpcd
+```
+
+Then we need to edit the configuration file, `/etc/dhcpcd.conf`, and append the following at the end:
+
+```
+interface eth0
+static ip_address=192.168.1.250/24
+static routers=192.168.1.254
+static domain_name_servers=1.1.1.1 1.0.0.1
+```
 
 https://www.reddit.com/r/pihole/comments/q2nfwk/is_it_possible_to_use_pihole_with_att_fiber/
 
