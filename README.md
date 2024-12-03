@@ -22,24 +22,27 @@ The total cost should be about $45.
 
 * A Raspberry Pi kit, I recommend the affordable [Raspberry Pi Zero W Basic Starter Kit](https://www.amazon.com/dp/B0748MPQT4)
 * [A MicroUSB ethernet port](https://www.amazon.com/dp/B08VRXJGYK)
-* [A MicroSD card](https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT) (and an adapter to read it on your computer)
+* [A MicroSD card](https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT) (and an adapter to read it on your computer; on my Mac, I use the provided MiniSD SanDisk Adapter)
 
 ## Building the Pi Hole
 
 You can follow along with more [detailed instructions here](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/), but here are the key steps.
 
-* [Download the Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+* [Download the Raspberry Pi Imager](https://www.raspberrypi.com/software/) and install it on your Computer.
+* Insert the MicroSD card into your computer with an appropriate adapter.
 * Click `Choose Device`, and select `Raspberry Pi Zero`
 * Click `Choose OS`, and select `Raspberry Pi OS (other)`, and then `Raspberry Pi OS Lite (32-bit)`
-* Be sure to choose `Configure Settings` during the installation, and enter these settings:
-    * Enter `pi-hole` as the hostname
-    * Enter a username and password; you’ll need these later to SSH to the Pi-hole
+* Click `Storage` and select the MicroSD disk.
+* Click `Next`, and `EDIT SETTINGS`. In the `General` tab:
+    * Set hostname to `pi-hole`
+    * Set a username and password; **you’ll need these later to SSH to the Pi-hole**
     * Uncheck the box next to `Configure wireless LAN`, unless you don't have the MicroUSB ethernet port
         * If using WiFi, enter your network SSID (name) and password
-* Check the box next to `Enable SSH`, and activate SSH with username and password
+* In the `Services` tab, check the box next to `Enable SSH`, and select `Use password authentication`
     * Make note of the username and password you create, we'll need them to SSH to the Pi-hole!
+* Click `Save`, then `Yes` to apply the OS customization settings. Then click `Yes` again to create the disk image.
 
-Once this completes, put the SD card into the Raspberry Pi, and build it. Plug the power into the correct port, and the MicroUSB ethernet dongle into the other. Plug the ethernet cable from your router into the Raspberry Pi, and power it on. Detailed instructions are available at the "details instructions here" link above. Once it boots we can continue:
+Once this completes, put the SD card into the Raspberry Pi, and build it. Plug the power into the correct port, and the MicroUSB ethernet dongle into the other. Plug the ethernet cable from your router into the Raspberry Pi, and power it on. [Detailed instructions are available here](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/). Once it boots we can continue:
 
 * SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`.
 
