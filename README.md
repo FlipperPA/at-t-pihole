@@ -39,7 +39,7 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 
 ### Setting a Fixed IP Address
 
-The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.250` for the Pi Hole. First, enter your router's configuration at http://192.168.1.254 and:
+The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address, and we can configure a fixed IP address for the Pi Hole through the web interface at [http://192.168.1.254](http://192.168.1.254).
 
 * Click `Home Network`, then `IP Allocation`
 * You should see an entry for `192.168.1.### / pi-hole` on the list; click the `Allocate` button on that entry.
