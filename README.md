@@ -22,7 +22,7 @@ The total cost should be about $45.
 
 * A Raspberry Pi kit, I recommend the affordable [Raspberry Pi Zero W Basic Starter Kit](https://www.amazon.com/dp/B0748MPQT4)
 * [A MicroUSB ethernet port](https://www.amazon.com/dp/B08VRXJGYK)
-* A MicroSD card (and an adapter to read it on your computer)
+* [A MicroSD card](https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT) (and an adapter to read it on your computer)
 
 ## Building the Pi Hole
 
