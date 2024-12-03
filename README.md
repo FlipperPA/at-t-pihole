@@ -1,4 +1,4 @@
-# Setting Up Pi Hole with AT&T Fiber
+# Setting Up Pi Hole with AT&T Fiber's BGW320-505 Router
 
 AT&T Fiber internet service is one of the worst I've encountered, and I'm from the home of Comcast's Xfinity, so that's saying something. They engage in more dark patterns than any ISP I have seen:
 
@@ -34,6 +34,10 @@ The total cost should be about $45.
 ## Customization For AT&T After Initial Installation
 
 To make this work, we need to configure your AT&T router to pass DHCP through to the Pi Hole server, and set the Pi Hole with a fixed IP so everything will still work after a power cycle.
+
+### Setting a Fixed IP Address
+
+The AT&T
 
 
 https://www.reddit.com/r/pihole/comments/q2nfwk/is_it_possible_to_use_pihole_with_att_fiber/
