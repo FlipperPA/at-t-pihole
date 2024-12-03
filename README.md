@@ -39,21 +39,23 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 
 ### Setting a Fixed IP Address
 
-The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.250` for the router, since other devices will likely be using lower addresses. At the prompt, bring up the NetworkManager configuration tool:
+The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address; in this example, I'll use `192.168.1.10` for the Pi Hole. At the prompt, bring up the NetworkManager configuration tool:
 
 ```
 sudo nmtui
 ```
 
 * In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
+* Make note of the MAC address in the `Device` field; it appears as six two-character pieces separated by colons. (`00:##:##:##:##:##`)
 * Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
-    * Addresses: `192.168.1.250/24`
+    * Addresses: `192.168.1.0/24`
     * Gateway: `192.168.1.254`
     * DNS Server: `1.1.1.1` and `1.0.0.1`
-    * Check `Ignore automatically obtained routes`
-    * Check `Ignore automatically obtained DNS parameters`
-    * Check `Require IPv4 addressing for this connection`
 * Click `OK`
+
+```
+sudo systemctl restart NetworkManager
+```
 
 https://www.reddit.com/r/pihole/comments/q2nfwk/is_it_possible_to_use_pihole_with_att_fiber/
 
