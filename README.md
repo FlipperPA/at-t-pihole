@@ -41,21 +41,15 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 
 The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address, and we can configure a fixed IP address for the Pi Hole through the web interface at [http://192.168.1.254](http://192.168.1.254).
 
-* Click `Home Network`, then `IP Allocation`
-* You should see an entry for `192.168.1.### / pi-hole` on the list; click the `Allocate` button on that entry.
-* From the `New allocation` list below, select `Private fixed: 192.168.1.250`
-* Click `Save`
-
-Open an SSH terminal to your Pi Hole again, and bring up the NetworkManager configuration tool:
-
-```
-sudo nmtui
-```
-
-* In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
-* Make note of the MAC address in the `Device` field; it appears as six two-character pieces separated by colons. (`00:##:##:##:##:##`)
-* Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
-    * Addresses: `192.168.1.250/24`
+1. Click `Home Network`, then `IP Allocation`
+2. You should see an entry for `192.168.1.### / pi-hole` on the list; click the `Allocate` button on that entry, and note the IP address number!
+3. From the `New allocation` list below, select the IP address noted in Step 2: `Private fixed: 192.168.1.###`
+4. Click `Save`
+5. Open an SSH terminal to your Pi Hole again, and bring up the NetworkManager configuration tool:
+6. Enter the command `sudo nmtui`
+7. In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
+8. Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
+    * Addresses: `192.168.1.###` (enter the IP address noted in Step 2)
     * Gateway: `192.168.1.254`
     * DNS Server: `1.1.1.1` and `1.0.0.1`
 * Click `OK`
