@@ -26,19 +26,26 @@ The total cost should be about $45.
 
 ## Building the Pi Hole
 
+You can follow along with more [detailed instructions here](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/), but here are the key steps.
+
 * [Download the Raspberry Pi Imager](https://www.raspberrypi.com/software/)
 * Click `Choose Device`, and select `Raspberry Pi Zero`
 * Click `Choose OS`, and select `Raspberry Pi OS (other)`, and then `Raspberry Pi OS Lite (32-bit)`
-* *****************************************
-* [Follow This Tutorial](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/)
-* The tutorial will instruct you to install the operating system using this page.
-    * Be sure to choose "Configure Settings" during the installation
-    * I choose to activate SSH with username and password
-    * Save the username and password you create during the installation
+* Be sure to choose `Configure Settings` during the installation, and enter these settings:
+    * Enter `pi-hole` as the hostname
+    * Enter a username and password; you’ll need these later to SSH to the Pi-hole
+    * Uncheck the box next to `Configure wireless LAN`, unless you don't have the MicroUSB ethernet port
+        * If using WiFi, enter your network SSID (name) and password
+* Check the box next to `Enable SSH`, and activate SSH with username and password
+    * Make note of the username and password you create, we'll need them to SSH to the Pi-hole!
+
+Once this completes, put the SD card into the Raspberry Pi, and build it. Plug the power into the correct port, and the MicroUSB ethernet dongle into the other. Plug the ethernet cable from your router into the Raspberry Pi, and power it on. Detailed instructions are available at the "details instructions here" link above. Once it boots we can continue:
+
+* SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`.
 
 Follow the instructions to update the operating system and install Pi Hole using the tutorial. After you have installed the operating system on the MicroSD card, and assembled the Raspberry Pi, be sure to use the ethernet cable to connect it to the router. Then continue below.
 
-## Customization For AT&T After Initial Installation
+## Customization for AT&T After Raspberry Pi OS Installation
 
 To make this work, we need to configure your AT&T router to pass DHCP through to the Pi Hole server, and set the Pi Hole with a fixed IP so everything will still work after a power cycle.
 
@@ -63,14 +70,42 @@ The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway addres
 sudo systemctl restart NetworkManager
 ```
 
-https://www.reddit.com/r/pihole/comments/q2nfwk/is_it_possible_to_use_pihole_with_att_fiber/
+## Pi-hole Installation
 
+SSH to the Pi-hole system, and run the following command:
 
+```
+curl -sSL https://install.pi-hole.net | bash
+```
 
-This is what I would do if I were you and wanted to continue using the AT&T router.
+This will take a few minutes to setup, then bring up an interface for installation:
 
-1- Assign the pihole with a static IP, 192.168.1.10 (assuming nothing is using that address) subnet 255.255.255.0 and gateway 192.168.1.254
-2- Confirm you can access the pihole web interface and login
-3- Disable DHCP on the AT&T router 4- Enable DCP on the pihole and make sure the DNS server is is pushing out is 192.168.1.10 or whichever IP you used as static. 5- Reboot your clients or wait for their existing DHCP lease to expire
-No need to set any DHCP reservations on the AT&T router since your pihole is static and DHCP is no longer running on the AT&T router.
-Don't forget to set your upstream DNS severs within pihole (google DNS, quad DNS, custom, etc...
+* When warned about needing a static IP address, click Continue to proceed; we’ll deal with this later
+* When prompted to choose an upstream DNS provider, choose OpenDNS
+* Include StevenBlack’s Unified Hosts List
+* Install the Admin Web Interface
+* Install lighttpd and the required PHP modules to run the Admin Web Interface
+* Enable query logging
+* When prompted to choose a privacy level, choose Anonymous mode
+* When installation is complete, be sure to note the password for the web interface!
+
+## Activate the DHCP Server on the Pi Hole
+
+Visit http://pi-hole/admin/ and log in with the password for the web interface.
+
+* Click on `Settings`, `DHCP`.
+* Check `DHCP server enabled`
+* Enter IP range From `192.168.1.2` to `192.168.1.150`
+* Ensure the `Router (gateway) IP address` is `192.168.1.254`
+
+Navigate to http://192.168.1.254 a log in to the router configuration.
+
+* Click on `Firewall`, `IP Passthrough`
+* Under `Allocation Mode`, click `Passthrough`
+* Select the `pi-hole` from the `Passthrough Fixed MAC Address` device list, to enter the MAC address
+* Click `Save` at the bottom.
+* Go to the Home Network tab.
+* Navigate to Subnets & DHCP.
+* Set DHCP Server to Off.
+* Click `Save` at the bottom
+* Restart the router
