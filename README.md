@@ -4,8 +4,8 @@ AT&T Fiber internet service is one of the worst I've encountered, and I'm from t
 
 * They force you to use their equipment, which is some of the worst on the market;
 * They don't let you easily [change your DNS server](https://www.howtogeek.com/897514/why-you-should-change-your-dns-server-today/);
-* They monitor your web-surfing through their DNS servers and sell the data to data brokers;
-* They don't allow you basic white and black listing of websites, unless you pay an additional monthly fee for their awful app;
+* They monitor your web-surfing through their DNS servers and [sell the data to data brokers](https://www.howtogeek.com/887360/att-sells-your-data-by-default-heres-how-to-opt-out/);
+* They don't allow you basic white and black listing of websites, [unless you pay an additional $7.99 monthly fee for their awful app](https://www.att.com/wireless/parental-controls);
 * Their default configuration of IPv6 is broken, and prevent devices such as the Meta Quest from properly connecting over WiFi until disabled completely.
 
 I could go on, but you get the point.
