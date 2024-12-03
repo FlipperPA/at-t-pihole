@@ -18,11 +18,12 @@ This tutorial will walk you through how to setup a Pi Hole on AT&T Fiber with th
 
 ## What You Need to Build a Pi Hole
 
-The total cost should be about $45.
+The total cost should be about $50.
 
 * A Raspberry Pi kit, I recommend the affordable [Raspberry Pi Zero W Basic Starter Kit](https://www.amazon.com/dp/B0748MPQT4)
 * [A MicroUSB ethernet port](https://www.amazon.com/dp/B08VRXJGYK)
 * [A MicroSD card](https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT) (and an adapter to read it on your computer; on my Mac, I use the provided MiniSD SanDisk Adapter)
+* Comfort with a computer command-line interface terminal; enough to open a terminal, SSH, and issue some basic commands.
 
 ## Building the Pi Hole
 
@@ -42,19 +43,30 @@ You can follow along with more [detailed instructions here](https://www.raspberr
     * Make note of the username and password you create, we'll need them to SSH to the Pi-hole!
 * Click `Save`, then `Yes` to apply the OS customization settings. Then click `Yes` again to create the disk image.
 
-Once this completes, put the SD card into the Raspberry Pi, and build it. Plug the power into the correct port, and the MicroUSB ethernet dongle into the other. Plug the ethernet cable from your router into the Raspberry Pi, and power it on. [Detailed instructions are available here](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/). Once it boots we can continue:
+Once this completes, build your Raspberry Pi-hole:
 
-* SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`.
+* Put the SD card into the Raspberry Pi board
+* Put the board into the plastic enclosure, and put the top on the enclosure.
+* Plug the power into the power port (closest to the edge), and the MicroUSB ethernet dongle into the other (towards to center).
+* Plug the ethernet cable from your router into the Raspberry Pi, plug in the power cable, and power it on.
 
-Follow the instructions to update the operating system and install Pi Hole using the tutorial. After you have installed the operating system on the MicroSD card, and assembled the Raspberry Pi, be sure to use the ethernet cable to connect it to the router. Then continue below.
+Give it a minute or two to boot up, then SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`; be sure to replace `[username]` with the one you created:
 
-## Customization for AT&T After Raspberry Pi OS Installation
+```bash
+$ ssh [username]@pi-hole
+```
 
-To make this work, we need to configure your AT&T router to pass DHCP through to the Pi Hole server, and set the Pi Hole with a fixed IP so everything will still work after a power cycle.
+If that doesn't prompt you for the password, you can try `ssh username@pi-hole.local`, or find the IP address from the router web interface in the next section, and try that. Once you are logged in, these next few steps will take a few minutes each. From the terminal, issue the following commands:
 
-### Setting a Fixed IP Address
+```bash
+$ sudo apt update
+$ sudo apt full-upgrade
+$ sudo reboot
+```
 
-The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address, and we can configure a fixed IP address for the Pi Hole through the web interface at [http://192.168.1.254](http://192.168.1.254).
+## Customization of the AT&T Router: Setting a Fixed IP Address
+
+To make this work, we need to configure your AT&T router to pass DHCP through to the Pi Hole server, and set the Pi Hole with a fixed IP so everything will still work after a power cycle. The AT&T BGW320-505 router uses IP address `192.168.1.254` as the gateway address, and we can configure a fixed IP address for the Pi Hole through the web interface at [http://192.168.1.254](http://192.168.1.254).
 
 1. Click `Home Network`, then `IP Allocation`
 2. You should see an entry for `192.168.1.### / pi-hole` on the list; click the `Allocate` button on that entry, and note the IP address number!
@@ -75,7 +87,7 @@ sudo systemctl restart NetworkManager
 
 ## Pi-hole Installation
 
-SSH to the Pi-hole system, and run the following command:
+SSH to the Pi-hole again, and run the following command:
 
 ```
 curl -sSL https://install.pi-hole.net | bash
@@ -92,23 +104,32 @@ This will take a few minutes to setup, then bring up an interface for installati
 * When prompted to choose a privacy level, choose Anonymous mode
 * When installation is complete, be sure to note the password for the web interface!
 
-## Activate the DHCP Server on the Pi Hole
+## Activate the DHCP Server on the Pi-hole, and Configure the AT&T Router to Use It
 
-Visit http://pi-hole/admin/ and log in with the password for the web interface.
+Visit http://pi-hole/admin/ and log in with the password you just noted for the web interface.
 
 * Click on `Settings`, `DHCP`.
 * Check `DHCP server enabled`
-* Enter IP range From `192.168.1.2` to `192.168.1.150`
+* Enter IP range From `192.168.1.2` to `192.168.1.150` (feel free to tweak these values if you know what you're doing)
 * Ensure the `Router (gateway) IP address` is `192.168.1.254`
 
-Navigate to http://192.168.1.254 a log in to the router configuration.
+Navigate to http://192.168.1.254 and log in to the router configuration interface.
 
 * Click on `Firewall`, `IP Passthrough`
 * Under `Allocation Mode`, click `Passthrough`
-* Select the `pi-hole` from the `Passthrough Fixed MAC Address` device list, to enter the MAC address
+* Select the `pi-hole` from the `Passthrough Fixed MAC Address` device list, which populated the proper MAC address
 * Click `Save` at the bottom.
 * Go to the Home Network tab.
 * Navigate to Subnets & DHCP.
 * Set DHCP Server to Off.
 * Click `Save` at the bottom
-* Restart the router
+* Restart the router by navigating to `Device`, `Restart Device`
+
+## You're done!
+
+Congrats! After the router reboots after a few minutes, you should be active. You can navigate to the Raspberry Pi web interface at http://pi-hole/admin/ to see a dashboard of what it is blocking and configure more lists. It is a good idea to test a power outage: turn off both the router and Raspberry Pi for a minute, and then turn them both back on. After five minutes, ensure your devices can still connect to the internet.
+
+If anything goes wrong, you may have to hit the factory reset button on the AT&T router. Ask me how I know. :)
+
+Good luck!
+ 
