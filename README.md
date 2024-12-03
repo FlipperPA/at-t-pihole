@@ -22,9 +22,14 @@ The total cost should be about $45.
 
 * A Raspberry Pi kit, I recommend the affordable [Raspberry Pi Zero W Basic Starter Kit](https://www.amazon.com/dp/B0748MPQT4)
 * [A MicroUSB ethernet port](https://www.amazon.com/dp/B08VRXJGYK)
+* A MicroSD card (and an adapter to read it on your computer)
 
 ## Building the Pi Hole
 
+* [Download the Raspberry Pi Imager](https://www.raspberrypi.com/software/)
+* Click `Choose Device`, and select `Raspberry Pi Zero`
+* Click `Choose OS`, and select `Raspberry Pi OS (other)`, and then `Raspberry Pi OS Lite (32-bit)`
+* *****************************************
 * [Follow This Tutorial](https://www.raspberrypi.com/tutorials/running-pi-hole-on-a-raspberry-pi/)
 * The tutorial will instruct you to install the operating system using this page.
     * Be sure to choose "Configure Settings" during the installation
