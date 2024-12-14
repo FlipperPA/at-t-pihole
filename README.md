@@ -110,6 +110,8 @@ This will take a few minutes to setup, then bring up an interface for installati
 
 Visit http://pi-hole/admin/ and log in with the password you just noted for the web interface.
 
+**On MacOS Sequoia and above, you'll need to enable your browser to have access to the local network. In Settings,, navigate to `Privacy & Security > Local Network`, and be sure the toggle is on for your browser(s).**
+
 * Click on `Settings`, `DHCP`.
 * Check `DHCP server enabled`
 * Enter IP range From `192.168.1.2` to `192.168.1.150` (feel free to tweak these values if you know what you're doing)
