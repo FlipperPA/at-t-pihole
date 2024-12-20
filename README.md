@@ -121,7 +121,7 @@ Navigate to http://192.168.1.254 and log in to the router configuration interfac
 
 * Click on `Firewall`, `IP Passthrough`
 * Under `Allocation Mode`, click `Passthrough`
-* Select the `pi-hole` from the `Passthrough Fixed MAC Address` device list, which populated the proper MAC address
+* Select the `pi-hole` from the `Passthrough Fixed MAC Address` device list, which will automatically fill in the proper MAC address.
 * Click `Save` at the bottom.
 * Go to the Home Network tab.
 * Navigate to Subnets & DHCP.
