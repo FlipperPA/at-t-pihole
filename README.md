@@ -50,7 +50,7 @@ Once this completes, build your Raspberry Pi-hole:
 * Plug the power into the power port (closest to the edge), and the MicroUSB ethernet dongle into the other (towards to center).
 * Plug the ethernet cable from your router into the Raspberry Pi, plug in the power cable, and power it on.
 
-Give it a minute or two to boot up, then SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`; be sure to replace `[username]` with the one you created:
+Be patient here! It can take up to ten minutes to boot up the first time. Then SSH to the Pi-hole from your terminal using the username and password you selected during `Configure Settings`; be sure to replace `[username]` with the one you created:
 
 ```bash
 $ ssh [username]@pi-hole
