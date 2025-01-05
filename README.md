@@ -129,6 +129,19 @@ Navigate to http://192.168.1.254 and log in to the router configuration interfac
 * Click `Save` at the bottom
 * Restart the router by navigating to `Device`, `Restart Device`
 
+## Adding a Firewall on the Raspberry Pi-Hole
+
+For additional protection beyond NAT, you can a firewall on the Pi-Hole, called `ufw` (Uncomplicated FireWall). Here are the commands to install the firewall and enable SSH, DHCP, and DNS:
+
+```bash
+sudo apt install ufw
+sudo ufw allow ssh comment 'Allow SSH'
+sudo ufw allow bootps comment 'Allow 67/UDP'
+sudo ufw allow bootpc comment 'Allow 68/UDP'
+sudo ufw allow dns comment 'Allow DNS'
+sudo ufw enable
+```
+
 ## You're done!
 
 Congrats! After the router reboots after a few minutes, you should be active. You can navigate to the Raspberry Pi web interface at http://pi-hole/admin/ to see a dashboard of what it is blocking and configure more lists. It is a good idea to test a power outage: turn off both the router and Raspberry Pi for a minute, and then turn them both back on. After five minutes, ensure your devices can still connect to the internet.
