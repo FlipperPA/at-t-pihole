@@ -90,7 +90,7 @@ From the Pi-hole command line, install Pi-hole with the command: `curl -sSL http
 
 This will take a few minutes to setup, then bring up an interface for installation:
 
-* When warned about needing a static IP address, click Continue to proceed; we’ll deal with this later
+* When warned about needing a static IP address, click Continue to proceed; we already did this above.
 * When prompted to choose an upstream DNS provider, choose OpenDNS
 * Include StevenBlack’s Unified Hosts List
 * Install the Admin Web Interface
