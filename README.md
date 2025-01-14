@@ -86,11 +86,7 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 
 ## Pi-hole Installation
 
-SSH to the Pi-hole again, and run the following command:
-
-```
-curl -sSL https://install.pi-hole.net | bash
-```
+From the Pi-hole command line, install Pi-hole with the command: `curl -sSL https://install.pi-hole.net | bash`
 
 This will take a few minutes to setup, then bring up an interface for installation:
 
