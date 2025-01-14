@@ -82,7 +82,7 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
     * Gateway: `192.168.1.254`
     * DNS Server: `1.1.1.1` and `1.0.0.1`
 * Click `OK`
-* Restart the NetworkManager: enter the command: `sudo systemctl restart NetworkManager`
+* Restart the NetworkManager by entering the command: `sudo systemctl restart NetworkManager`
 
 ## Pi-hole Installation
 
