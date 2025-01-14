@@ -74,8 +74,8 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 4. Click `Save`
 5. Click `Home Network`, `IPv6`
 6. Turn `IPv6` to `Off`. Their implementation is broken, and will often interfere with devices like Pi-hole. You may also find other devices such as the Meta Quest can now connect.
-7. Open an SSH terminal to your Pi Hole again, and bring up the NetworkManager configuration tool:
-8. Enter the command `sudo nmtui`
+7. Open an SSH terminal to your Pi Hole again
+8. Bring up the NetworkManager configuration by entering the command `sudo nmtui`
 9. In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
 10. Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
     * Addresses: `192.168.1.###` (enter the IP address noted in Step 2)
