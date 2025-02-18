@@ -129,7 +129,7 @@ For additional protection beyond NAT, you can add a firewall on the Pi-Hole, cal
 ```bash
 sudo apt install ufw
 sudo ufw allow ssh comment 'Allow SSH'
-sudo ufw allow http 'Allow web HTTP'
+sudo ufw allow http comment 'Allow web HTTP'
 sudo ufw allow bootps comment 'Allow 67/UDP'
 sudo ufw allow bootpc comment 'Allow 68/UDP'
 sudo ufw allow dns comment 'Allow DNS'
