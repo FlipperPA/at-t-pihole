@@ -22,6 +22,7 @@ The total cost should be about $50.
 
 * A Raspberry Pi kit, I recommend the affordable [Raspberry Pi Zero W Basic Starter Kit](https://www.amazon.com/dp/B0748MPQT4)
 * [A MicroUSB ethernet port](https://www.amazon.com/dp/B08VRXJGYK)
+    * **THIS IS HIGHLY RECOMMENDED.** There are reports of crashing issues when using to the router rather than ethernet. It is less than $10!
 * [A MicroSD card](https://www.amazon.com/SanDisk-Ultra-microSDXC-Memory-Adapter/dp/B073JWXGNT) (and an adapter to read it on your computer; on my Mac, I use the provided MiniSD SanDisk Adapter)
 * Comfort with a computer command-line interface terminal; enough to open a terminal, SSH, and issue some basic commands.
 
