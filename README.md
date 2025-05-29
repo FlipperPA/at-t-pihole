@@ -145,7 +145,7 @@ You'll want to keep your Pi-Hole operating system up to date. Here's a handy one
 sudo apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
 ```
 
-You can add this to `cron` nightly to ensure your system is patched.
+You can add this to the `root` user's `cron` nightly to ensure your system is patched.
 
 ## You're done!
 
