@@ -137,6 +137,16 @@ sudo ufw allow dns comment 'Allow DNS'
 sudo ufw enable
 ```
 
+## Keeping Up to Date
+
+You'll want to keep your Pi-Hole operating system up to date. Here's a handy one-liner:
+
+```bash
+sudo apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
+```
+
+You can add this to `cron` nightly to ensure your system is patched.
+
 ## You're done!
 
 Congrats! After the router reboots after a few minutes, you should be active. You can navigate to the Raspberry Pi web interface at http://pi-hole/admin/ to see a dashboard of what it is blocking and configure more lists. It is a good idea to test a power outage: turn off both the router and Raspberry Pi for a minute, and then turn them both back on. After five minutes, ensure your devices can still connect to the internet.
