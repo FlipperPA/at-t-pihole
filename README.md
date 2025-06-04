@@ -133,7 +133,7 @@ sudo ufw allow from 192.168.0.0/16 to any port 67 proto udp comment 'Allow DHCP 
 sudo ufw allow from 192.168.0.0/16 to any port 68 proto udp comment 'Allow DHCP Reply'
 sudo ufw allow from 192.168.0.0/16 to any port 53 proto tcp comment 'Allow DNS TCP'
 sudo ufw allow from 192.168.0.0/16 to any port 53 proto udp comment 'Allow DNS UDP'
-sudo ufw allow from 192.168.0.0/16 to any port 80 proto tcp comment 'Allow HTTP'
+sudo ufw allow from 192.168.0.0/16 to any port 80 proto tcp comment 'Allow HTTP for Pi-Hole Web Interface'
 sudo ufw enable
 ```
 
