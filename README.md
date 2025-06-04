@@ -141,7 +141,7 @@ sudo ufw enable
 You'll want to keep your Pi-Hole operating system up to date. Here's a handy one-liner:
 
 ```bash
-sudo apt-get update && apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
+sudo apt-get update && sudo apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
 ```
 
 You can make it run every night under `root:
