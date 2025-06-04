@@ -124,15 +124,16 @@ Navigate to http://192.168.1.254 and log in to the router configuration interfac
 
 ## Adding a Firewall on the Raspberry Pi-Hole
 
-For additional protection beyond NAT, you can add a firewall on the Pi-Hole, called `ufw` (`u`ncomplicated `f`ire`w`all). From the Pi-hole command line, you can run these commands to install the firewall and enable SSH, HTTP, DHCP, and DNS.
+For additional protection beyond NAT, you can add a firewall on the Pi-Hole, called `ufw` (`u`ncomplicated `f`ire`w`all). From the Pi-hole command line, you can run these commands to install the firewall and enable SSH, HTTP, DHCP, and DNS. If you've chosen a DHCP scheme other than `192.168` such as `10.0`, modify accordingly.
 
 ```bash
 sudo apt install ufw
-sudo ufw allow ssh comment 'Allow SSH'
-sudo ufw allow http comment 'Allow web HTTP'
-sudo ufw allow bootps comment 'Allow 67/UDP'
-sudo ufw allow bootpc comment 'Allow 68/UDP'
-sudo ufw allow dns comment 'Allow DNS'
+sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp comment 'Allow SSH'
+sudo ufw allow from 192.168.0.0/16 to any port 67 proto udp comment 'Allow DHCP Request'
+sudo ufw allow from 192.168.0.0/16 to any port 68 proto udp comment 'Allow DHCP Reply'
+sudo ufw allow from 192.168.0.0/16 to any port 53 proto tcp comment 'Allow DNS TCP'
+sudo ufw allow from 192.168.0.0/16 to any port 53 proto udp comment 'Allow DNS UDP'
+sudo ufw allow from 192.168.0.0/16 to any port 80 proto tcp comment 'Allow HTTP'
 sudo ufw enable
 ```
 
