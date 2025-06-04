@@ -94,8 +94,7 @@ This will take a few minutes to setup, then bring up an interface for installati
 * When warned about needing a static IP address, click Continue to proceed; we already did this above.
 * When prompted to choose an upstream DNS provider, choose OpenDNS
 * Include StevenBlack’s Unified Hosts List
-* Install the Admin Web Interface
-* Install lighttpd and the required PHP modules to run the Admin Web Interface
+* Install the Admin Web Interface with its required PHP modules
 * Enable query logging
 * When prompted to choose a privacy level, choose Anonymous mode
 * When installation is complete, be sure to note the password for the web interface!
@@ -142,7 +141,7 @@ sudo ufw enable
 You'll want to keep your Pi-Hole operating system up to date. Here's a handy one-liner:
 
 ```bash
-sudo apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
+sudo apt-get update && apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
 ```
 
 You can make it run every night under `root:
@@ -155,7 +154,7 @@ crontab -e
 Then select an editor, and put this line in the `cron` file to run at 3:30 a.m. daily:
 
 ```bash
-30 3 * * * apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
+30 3 * * * apt-get update && apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
 ```
 
 Save the file and it should install. Then you can exit.
