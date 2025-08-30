@@ -128,12 +128,12 @@ For additional protection beyond NAT, you can add a firewall on the Pi-Hole, cal
 
 ```bash
 sudo apt install ufw
-sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp comment 'Allow SSH'
-sudo ufw allow from 192.168.0.0/16 to any port 67 proto udp comment 'Allow DHCP Request'
-sudo ufw allow from 192.168.0.0/16 to any port 68 proto udp comment 'Allow DHCP Reply'
-sudo ufw allow from 192.168.0.0/16 to any port 53 proto tcp comment 'Allow DNS TCP'
-sudo ufw allow from 192.168.0.0/16 to any port 53 proto udp comment 'Allow DNS UDP'
-sudo ufw allow from 192.168.0.0/16 to any port 80 proto tcp comment 'Allow HTTP for Pi-Hole Web Interface'
+sudo ufw allow from 192.168.1.0/24 to any port 22 proto tcp comment 'Allow SSH'
+sudo ufw allow from 192.168.1.0/24 to any port 67 proto udp comment 'Allow DHCP Request'
+sudo ufw allow from 192.168.1.0/24 to any port 68 proto udp comment 'Allow DHCP Reply'
+sudo ufw allow from 192.168.1.0/24 to any port 53 proto tcp comment 'Allow DNS TCP'
+sudo ufw allow from 192.168.1.0/24 to any port 53 proto udp comment 'Allow DNS UDP'
+sudo ufw allow from 192.168.1.0/24 to any port 80 proto tcp comment 'Allow HTTP for Pi-Hole Web Interface'
 sudo ufw enable
 ```
 
