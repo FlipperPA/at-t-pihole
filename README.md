@@ -134,7 +134,10 @@ sudo ufw limit in from 192.168.1.0/24 to any port 22 proto tcp comment 'SSH (rat
 sudo ufw allow in from 192.168.1.0/24 to any port 53 proto tcp comment 'DNS TCP'
 sudo ufw allow in from 192.168.1.0/24 to any port 53 proto udp comment 'DNS UDP'
 sudo ufw allow in from 0.0.0.0/32 to any port 67 proto udp comment 'DHCP server for first packet'
-sudo ufw allow in from 192.168.1.0/24 to any port 67 proto udp comment 'DHCP server'
+sudo ufw allow in from 192.168.1.0/24 to any port 67 proto udp comment 'DHCP requests'
+sudo ufw allow in from 192.168.1.0/24 to any port 68 proto udp comment 'DHCP replies'
+sudo ufw allow from 255.255.255.255 to any port 67 proto udp comment 'DHCP local request discovery broadcast'
+sudo ufw allow from 255.255.255.255 to any port 68 proto udp comment 'DHCP local response discovery broadcast'
 sudo ufw allow in from 192.168.1.0/24 to any port 80 proto tcp comment 'Pi-hole Admin'
 sudo ufw enable
 ```
