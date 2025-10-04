@@ -10,6 +10,8 @@ AT&T Fiber internet service is one of the worst I've encountered, and I'm from t
 
 I could go on, but you get the point.
 
+NEW! I've written [a second guide on how to create a downtime schedule](https://github.com/FlipperPA/at-t-pihole/blob/main/README-downtime-schedule.md) for those of you who want to automatically deactivate your kid's devices overnight.
+
 ## A Partial Solution: the Pi Hole!
 
 Most people are familiar with installing an ad blocker in your web browser or on your phone, such as uBlock or AdBlock Plus. Pi Hole does largely the same thing, but for your entire home network. That means any device that hooks up to your home WiFi (a laptop, an iPad, a phone, even a TV device like Roku) is protected. It also provides a web-based interface where you can block any website you want. This is very handy if you have kids! It blocks ads on YouTube, in the interface for Roku and Amazon Fire, and also blocks these devices logging everything you watch, so they don't get sold to data brokers.
