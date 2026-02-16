@@ -162,7 +162,7 @@ crontab -e
 Then select an editor, and put this line in the `cron` file to run at 3:30 a.m. daily:
 
 ```bash
-30 3 * * * apt-get update && apt-get -y upgrade; [ -e /var/run/reboot-required ] && sudo reboot
+30 3 * * * apt-get update && apt-get -y upgrade; [ -e /var/run/reboot-required ] && reboot
 ```
 
 Save the file and it should install. Then you can exit.
