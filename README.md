@@ -81,7 +81,8 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 8. Bring up the NetworkManager configuration by entering the command `sudo nmtui`
 9. In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
 10. Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
-    * Addresses: `192.168.1.###` (enter the IP address noted in Step 2)
+    * Ensure is it set to `<Manual>`    
+    * Addresses: `192.168.1.###/24` (complete the IP address noted in Step 2 in place of `###`)
     * Gateway: `192.168.1.254`
     * DNS Server: `1.1.1.1` and `1.0.0.1`
 * Click `OK`
