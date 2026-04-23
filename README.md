@@ -142,6 +142,7 @@ sudo ufw allow in from 192.168.1.0/24 to any port 68 proto udp comment 'DHCP rep
 sudo ufw allow from 255.255.255.255 to any port 67 proto udp comment 'DHCP local request discovery broadcast'
 sudo ufw allow from 255.255.255.255 to any port 68 proto udp comment 'DHCP local response discovery broadcast'
 sudo ufw allow in from 192.168.1.0/24 to any port 80 proto tcp comment 'Pi-hole Admin'
+sudo ufw allow in from 192.168.1.0/24 to any port 443 proto tcp comment 'Pi-hole Admin'
 sudo ufw enable
 ```
 
