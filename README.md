@@ -104,7 +104,7 @@ This will take a few minutes to setup, then bring up an interface for installati
 
 ## Activate the DHCP Server on the Pi-hole, and Configure the AT&T Router to Use It
 
-Visit http://pi-hole/admin/ and log in with the password you just noted for the web interface.
+Visit https://pi.hole/admin/ and log in with the password you just noted for the web interface.
 
 **On MacOS Sequoia and above, you'll need to enable your browser to have access to the local network. In Settings, navigate to `Privacy & Security > Local Network`, and be sure the toggle is ON for your browser(s).**
 
@@ -142,6 +142,7 @@ sudo ufw allow in from 192.168.1.0/24 to any port 68 proto udp comment 'DHCP rep
 sudo ufw allow from 255.255.255.255 to any port 67 proto udp comment 'DHCP local request discovery broadcast'
 sudo ufw allow from 255.255.255.255 to any port 68 proto udp comment 'DHCP local response discovery broadcast'
 sudo ufw allow in from 192.168.1.0/24 to any port 80 proto tcp comment 'Pi-hole Admin'
+sudo ufw allow in from 192.168.1.0/24 to any port 443 proto tcp comment 'Pi-hole Admin'
 sudo ufw enable
 ```
 
@@ -170,7 +171,7 @@ Save the file and it should install. Then you can exit.
 
 ## You're done!
 
-Congrats! After the router reboots after a few minutes, you should be active. You can navigate to the Raspberry Pi web interface at http://pi-hole/admin/ to see a dashboard of what it is blocking and configure more lists. It is a good idea to test a power outage: turn off both the router and Raspberry Pi for a minute, and then turn them both back on. After five minutes, ensure your devices can still connect to the internet.
+Congrats! After the router reboots after a few minutes, you should be active. You can navigate to the Raspberry Pi web interface at https://pi.hole/admin/ to see a dashboard of what it is blocking and configure more lists. It is a good idea to test a power outage: turn off both the router and Raspberry Pi for a minute, and then turn them both back on. After five minutes, ensure your devices can still connect to the internet.
 
 If anything goes wrong, you may have to hit the factory reset button on the AT&T router. Ask me how I know. :)
 
