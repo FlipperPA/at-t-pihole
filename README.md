@@ -125,6 +125,28 @@ Navigate to http://192.168.1.254 and log in to the router configuration interfac
 * Click `Save` at the bottom
 * Restart the router by navigating to `Device`, `Restart Device`
 
+## Disable AT&T Internet ActiveArmor
+
+Skip this step if you know you are not using AT&T Internet ActiveArmor. 
+
+Many users with AT&T internet will enable the "free" (or paid) [AT&T Internet ActiveArmor](https://www.att.com/security/advanced-internet-security/) service that AT&T claims will keep your network secure. Pi-hole will do what ActiveArmor does, but better, with more user control, and for free. The main reason to disable ActiveArmor is because it can conflict with or even bypass Pi-hole. Here is how to disable it:
+
+* Open the Smart Home Manager app on your mobile device.
+* Determine if ActiveArmor is enabled.
+   * Tap your user image in the bottom right.
+   * Find the card titled `AT&T ActiveArmor`.
+   * If the card has a blue `Activate` button, then ActiveArmor is not enabled.
+   * If the card does not have a blue `Activate` button, then ActiveArmor is enabled.
+* Disable ActiveArmor.
+   * Tap the AT&T ActiveArmor card.
+   * Click the `Disable` button.
+* If the `Disable` button is missing in the ActiveArmor card.
+   * Open the Virtual Assistant
+      * Open app shortcuts (blue circle with white squares in the bottom right of the screen) and choose `Virtual Assistant`.
+      * Or, open the message center in the top right and click `Need help? Chat with us`.
+   * Type in `Disable AT&T ActiveArmor protection`.
+   * When prompted, confirm that you want to turn off AT&T ActiveArmor.
+
 ## Adding a Firewall on the Raspberry Pi-Hole
 
 For additional protection beyond NAT, you can add a firewall on the Pi-Hole, called `ufw` (`u`ncomplicated `f`ire`w`all). From the Pi-hole command line, you can run these commands to install the firewall and enable SSH, HTTP, DHCP, and DNS. If you've chosen a DHCP scheme other than `192.168` such as `10.0`, modify accordingly.
