@@ -1,5 +1,7 @@
 # Setting Up Pi Hole with AT&T Fiber's BGW320-505 Router
 
+**I no longer live in an area with AT&T Fiber (I'm on Verizon FiOS now), so I'm looking for someone to take over this README as maintainer. While it is still accurate, [there are some Issues](https://github.com/FlipperPA/at-t-pihole/issues) which could be addressed in the text. Please get in touch [by opening an Issue](https://github.com/FlipperPA/at-t-pihole/issues/new) if you're interested in taking over as maintainer.**
+
 AT&T Fiber internet service is one of the worst I've encountered, and I'm from the home of Comcast's Xfinity, so that's saying something. They force a lot of bad, [dark patterns](https://en.wikipedia.org/wiki/Dark_pattern) on their users:
 
 * They force you to use their equipment, which is some of the worst on the market;
