@@ -103,6 +103,7 @@ sudo tee /etc/NetworkManager/conf.d/wifi-powersave-off.conf <<EOF
 [connection]
 wifi.powersave = 2
 EOF
+```
 
 3. Restart the network manager with this command: `sudo systemctl restart NetworkManager`
 4. Run `iw wlan0 get power_save` again, and make sure it says `Power save: off`.
