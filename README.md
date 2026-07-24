@@ -82,13 +82,30 @@ To make this work, we need to configure your AT&T router to pass DHCP through to
 7. Open an SSH terminal to your Pi Hole again
 8. Bring up the NetworkManager configuration by entering the command `sudo nmtui`
 9. In the interface, use the cursor arrows and the enter key to select `Edit a connection`, and select `Wired connection 1`.
-10. Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
+    * Note: while not recommended, if you are using WiFi instead of wired, you choose the WiFi connection in this step.
+11. Under `IPv4 CONFIGURATION` (click `<Show>` if necessary):
     * Ensure is it set to `<Manual>`    
     * Addresses: `192.168.1.###/24` (complete the IP address noted in Step 2 in place of `###`)
     * Gateway: `192.168.1.254`
     * DNS Server: `1.1.1.1` and `1.0.0.1`
 * Click `OK`
 * Restart the NetworkManager by entering the command: `sudo systemctl restart NetworkManager`
+
+### Note for WiFi Users
+
+If you are using a wired connection as recommended, you can skip this section. But if you are using WiFi, you can help stablize your setup by disabling power save.
+
+1. First, check to see if it is on; enter this command: `iw wlan0 get power_save`
+2. If it says `Power save: on`, run the following command to disable power save:
+
+```
+sudo tee /etc/NetworkManager/conf.d/wifi-powersave-off.conf <<EOF
+[connection]
+wifi.powersave = 2
+EOF
+
+3. Restart the network manager with this command: `sudo systemctl restart NetworkManager`
+4. Run `iw wlan0 get power_save` again, and make sure it says `Power save: off`.
 
 ## Pi-hole Installation
 
