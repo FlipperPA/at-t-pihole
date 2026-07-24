@@ -188,6 +188,13 @@ sudo ufw allow in from 192.168.1.0/24 to any port 443 proto tcp comment 'Pi-hole
 sudo ufw enable
 ```
 
+## Running DoH (DNS over HTTPS)
+
+Using encrypted DNS queries gives extra privacy. This is purely optional; here is the documentation on how to 
+achieve this:
+
+[Running DoH (DNS over HTTPS)](https://docs.pi-hole.net/guides/dns/dnscrypt-proxy/)
+
 ## Keeping Up to Date
 
 You'll want to keep your Pi-Hole operating system up to date. Here's a handy one-liner:
