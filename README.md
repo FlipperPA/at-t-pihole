@@ -42,11 +42,12 @@ You can follow along with more [detailed instructions here](https://www.raspberr
 * Click `Next`, and `EDIT SETTINGS`. In the `General` tab:
     * Set hostname to `pi-hole`
     * Set a username and password; **you’ll need these later to SSH to the Pi-hole**
-    * Uncheck the box next to `Configure wireless LAN`, unless you don't have the MicroUSB ethernet port.
+    * Leave WiFi settings blank; just click `Next`, unless you don't have the MicroUSB ethernet port.
         * **Using WiFi is NOT recommended!** But if you do, enter your network SSID (name) and password
-* In the `Services` tab, check the box next to `Enable SSH`, and select `Use password authentication`
+* In `Remote Access`, toggle `Enable SSH`, and select ensure `Use password authentication` is selected.
     * Make note of the username and password you create, we'll need them to SSH to the Pi-hole!
-* Click `Save`, then `Yes` to apply the OS customization settings. Then click `Yes` again to create the disk image.
+* Click `Next` to pass by Raspberry Pi Connect. You don't need it.
+* Then start the process to create the disk image.
 
 Once this completes, build your Raspberry Pi-hole:
 
